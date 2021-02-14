@@ -12,12 +12,17 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask Environment;
 
     public Rigidbody2D rb;
+    private int lives;
+    public Text livesText;
+    public GameObject deathEffect;
 
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        lives = 2;
+        SetLivesText();
     }
 
     // Update is called once per frame
@@ -43,5 +48,33 @@ public class PlayerMovement : MonoBehaviour
         // Use the stored floats to create a new Vector2 variable movement.
         Vector2 movement = new Vector2(mx * speed, rb.velocity.y);
         rb.velocity = movement;
+    }
+
+    void OnCollisionEnter2D(Collision2D col)
+    {
+        if(col.gameObject.tag == "Enemy")
+        {
+            lives = lives - 1;
+            SetLivesText();
+        }
+        if(lives == 0)
+        {
+            //Destroy(this.gameObject);
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "HitBox")
+        {
+            rb.AddForce(Vector2.up * 800);
+        }
+    }
+
+    void SetLivesText()
+    {
+        livesText.text = "Lives: " + lives.ToString();
     }
 }
