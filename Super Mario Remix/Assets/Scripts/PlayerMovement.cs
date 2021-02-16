@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.UIElements;
+using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -41,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
-            rb.AddForce(Vector2.up * 500);
+            rb.AddForce(Vector2.up * 800);
         }
 
         isGrounded = Physics2D.OverlapArea(new Vector2(transform.position.x - 0.5f, transform.position.y - 0.5f),
@@ -89,6 +90,15 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Lvl2:End")
+        {
+            SceneManager.LoadScene (1);
+        }
+      
+        if (collision.gameObject.tag == "Lvl1:End")
+        {
+            transform.position = new Vector3(150.0f, 5f,0f); 
+        }
         if (collision.gameObject.tag == "HitBox")
         {
             rb.AddForce(Vector2.up * 600);

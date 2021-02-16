@@ -142,13 +142,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2591251a3fffaa34f917dafeea741a4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  speed: 10
   isGrounded: 0
   Environment:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 256
   rb: {fileID: 0}
-  timeInvincible: 2
-  countText: {fileID: 0}
-  winText: {fileID: 0}
   livesText: {fileID: 0}
+  deathEffect: {fileID: 0}
+  countText: {fileID: 0}
