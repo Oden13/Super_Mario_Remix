@@ -21,6 +21,7 @@ public class HitBoxScript : MonoBehaviour
         if(col.gameObject.tag == "Player")
         {
             Destroy(gameObject);
+            Destroy(GameObject.FindWithTag("Enemy"));
             Debug.Log ("Enemy down");
             Instantiate(deathEffect, transform.position, Quaternion.identity);
         }

@@ -9,6 +9,9 @@ public class EnemyController : MonoBehaviour
     float timer;
     public float changeTime = 2.0f;
     int direction = 1;
+    public int health;
+    public GameObject deathEffect;
+
 
     // Start is called before the first frame update
     void Start()
@@ -25,6 +28,13 @@ public class EnemyController : MonoBehaviour
             direction = -direction;
             timer = changeTime;
         }
+        
+        if (health <= 0) 
+        {
+            //play death effect.
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
     }
 
     void FixedUpdate()
@@ -32,5 +42,10 @@ public class EnemyController : MonoBehaviour
         Vector2 position = rb.position;
         position.x = position.x + Time.deltaTime * speed * direction;
         rb.MovePosition(position);
+    }
+
+    public void TakeDamage(int damage) 
+    {
+        health -= damage;
     }
 }

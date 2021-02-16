@@ -17,7 +17,7 @@ public class PlayerMovement : MonoBehaviour
     public GameObject deathEffect;
     private int count;
     public Text countText;
-    float invincibleTimer = 1.5f;
+    float invincibleTimer;
     bool isInvincible = false;
 
 
@@ -68,6 +68,7 @@ public class PlayerMovement : MonoBehaviour
             lives = lives - 1;
             SetLivesText();
             isInvincible = true;
+            invincibleTimer = 3f;
         }
         if (isInvincible)
         {
@@ -99,9 +100,19 @@ public class PlayerMovement : MonoBehaviour
             count = count + 1;
             SetCountText();
         }
-        if (collision.gameObject.tag == "Power Up")
+        if (collision.gameObject.tag == "Power Up" && !isInvincible)
         {
             Destroy(collision.gameObject);
+            isInvincible = true;
+            invincibleTimer = 5f;
+        }
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer == 0)
+            {
+                isInvincible = false;
+            }
         }
     }
 
