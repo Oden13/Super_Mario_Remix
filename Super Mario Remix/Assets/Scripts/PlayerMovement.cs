@@ -97,7 +97,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(collision.gameObject);
             Debug.Log("You got 1");
-            count = count + 1;
+            count = count + 100;
             SetCountText();
         }
         if (collision.gameObject.tag == "Power Up" && !isInvincible)
@@ -105,6 +105,7 @@ public class PlayerMovement : MonoBehaviour
             Destroy(collision.gameObject);
             isInvincible = true;
             invincibleTimer = 5f;
+            Debug.Log("Can't Touch Me");
         }
         if (isInvincible)
         {
