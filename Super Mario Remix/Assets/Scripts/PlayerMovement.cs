@@ -15,6 +15,11 @@ public class PlayerMovement : MonoBehaviour
     private int lives;
     public Text livesText;
     public GameObject deathEffect;
+    private int count;
+    public Text countText;
+    float invincibleTimer = 1.5f;
+    bool isInvincible = false;
+
 
 
     // Start is called before the first frame update
@@ -23,6 +28,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         lives = 2;
         SetLivesText();
+        count = 0;
+        SetCountText();
     }
 
     // Update is called once per frame
@@ -40,7 +47,11 @@ public class PlayerMovement : MonoBehaviour
         isGrounded = Physics2D.OverlapArea(new Vector2(transform.position.x - 0.5f, transform.position.y - 0.5f),
         new Vector2(transform.position.x + 0.5f, transform.position.y - 0.51f), Environment);
 
-
+        invincibleTimer -= Time.deltaTime;
+        if (invincibleTimer < 0)
+        {
+            isInvincible = false;
+        }
     }
 
     void FixedUpdate()
@@ -52,10 +63,20 @@ public class PlayerMovement : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        if(col.gameObject.tag == "Enemy")
+        if(col.gameObject.tag == "Enemy" && !isInvincible)
         {
             lives = lives - 1;
             SetLivesText();
+            isInvincible = true;
+        }
+        if (isInvincible)
+        {
+            invincibleTimer -= Time.deltaTime;
+            if (invincibleTimer == 0)
+            {
+                isInvincible = false;
+            }
+
         }
         if(lives == 0)
         {
@@ -69,12 +90,32 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "HitBox")
         {
-            rb.AddForce(Vector2.up * 800);
+            rb.AddForce(Vector2.up * 600);
+        }
+        if (collision.gameObject.tag == "Pick Up")
+        {
+            Destroy(collision.gameObject);
+            Debug.Log("You got 1");
+            count = count + 1;
+            SetCountText();
+        }
+        if (collision.gameObject.tag == "Power Up")
+        {
+            Destroy(collision.gameObject);
         }
     }
 
     void SetLivesText()
     {
         livesText.text = "Lives: " + lives.ToString();
+    }
+
+    void SetCountText()
+    {
+        countText.text = "Score: " + count.ToString ();
+        if (count >= 300)
+        {
+            Debug.Log("You win");
+        }
     }
 }
