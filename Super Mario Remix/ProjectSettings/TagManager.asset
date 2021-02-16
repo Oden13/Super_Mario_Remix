@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Enemy
   - HitBox
+  - Pick Up
+  - Power Up
   layers:
   - Default
   - TransparentFX
@@ -16,7 +18,7 @@ TagManager:
   - 
   - 
   - Environment
-  - 
+  - Enemy
   - 
   - 
   - 
