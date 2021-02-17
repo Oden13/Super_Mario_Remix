@@ -20,6 +20,9 @@ public class PlayerMovement : MonoBehaviour
     public Text countText;
     float invincibleTimer;
     bool isInvincible = false;
+    Vector3 characterScale;
+    float characterScaleX;
+
 
 
 
@@ -31,6 +34,8 @@ public class PlayerMovement : MonoBehaviour
         SetLivesText();
         count = 0;
         SetCountText();
+        characterScale = transform.localScale;
+        characterScaleX = characterScale.x;
     }
 
     // Update is called once per frame
@@ -53,6 +58,16 @@ public class PlayerMovement : MonoBehaviour
         {
             isInvincible = false;
         }
+
+        if (Input.GetAxis("Horizontal") < 0) {
+            characterScale.x = -characterScaleX;
+        }
+        if (Input.GetAxis("Horizontal") > 0)
+        {
+            characterScale.x = characterScaleX;
+        }
+        transform.localScale = characterScale;
+
     }
 
     void FixedUpdate()
@@ -101,7 +116,7 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.gameObject.tag == "HitBox")
         {
-            rb.AddForce(Vector2.up * 600);
+            rb.AddForce(Vector2.up * 800);
         }
         if (collision.gameObject.tag == "Pick Up")
         {
