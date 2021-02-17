@@ -11,9 +11,9 @@ public class MenuScript : MonoBehaviour
         
     }
 
-    public void SwitchScene(string Main)
+    public void SwitchScene(string Game)
 {
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("Game");
     }
     public void quitgame()
     {
