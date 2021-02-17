@@ -7,7 +7,7 @@ public class EnemyController : MonoBehaviour
     public Rigidbody2D rb;
     public float speed;
     float timer;
-    public float changeTime = 2.0f;
+    public float changeTime = 1.1f;
     int direction = 1;
     public int health;
     public GameObject deathEffect;
