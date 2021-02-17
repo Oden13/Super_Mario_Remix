@@ -92,7 +92,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (collision.gameObject.tag == "Lvl2:End")
         {
-            SceneManager.LoadScene (1);
+            SceneManager.LoadScene (2);
         }
       
         if (collision.gameObject.tag == "Lvl1:End")
