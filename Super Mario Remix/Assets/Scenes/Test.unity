@@ -737,6 +737,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3514717443585587274, guid: 5b707f6384627f045912ef7c49249adc,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 3514717443585587277, guid: 5b707f6384627f045912ef7c49249adc,
         type: 3}
       propertyPath: startTimeBtwShots
