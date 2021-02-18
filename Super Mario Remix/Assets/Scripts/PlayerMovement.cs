@@ -105,9 +105,20 @@ public class PlayerMovement : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Lvl2:End")
+          if (collision.gameObject.tag == "Lvl2:End")
         {
             SceneManager.LoadScene (2);
+        }
+
+
+        if (collision.gameObject.tag == "PitFall")
+        {
+                        Instantiate(deathEffect, transform.position, Quaternion.identity);
+            Destroy(gameObject);
+        }
+        if (collision.gameObject.tag == "Lvl2:Start")
+        {
+            SceneManager.LoadScene (3);
         }
       
         if (collision.gameObject.tag == "Lvl1:End")

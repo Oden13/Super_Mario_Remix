@@ -6,6 +6,12 @@ TagManager:
   tags:
   - Lvl1:End
   - Lvl2:End
+  - Pick Up
+  - Enemy
+  - HitBox
+  - Power Up
+  - PitFall
+  - Lvl2:Start
   layers:
   - Default
   - TransparentFX
