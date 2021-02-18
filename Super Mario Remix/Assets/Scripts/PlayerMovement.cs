@@ -23,6 +23,13 @@ public class PlayerMovement : MonoBehaviour
     Vector3 characterScale;
     float characterScaleX;
 
+    public AudioClip jump;
+    public AudioClip hurt;
+    public AudioClip death;
+    public AudioClip pickup;
+    public AudioClip invincible;
+    public AudioSource soundSource;
+
 
 
 
@@ -48,9 +55,14 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
         {
             rb.AddForce(Vector2.up * 800);
+            if (!soundSource.isPlaying)
+            {
+                soundSource.clip = jump;
+                soundSource.Play();
+            }
         }
 
-        isGrounded = Physics2D.OverlapArea(new Vector2(transform.position.x - 0.5f, transform.position.y - 0.5f),
+        isGrounded = Physics2D.OverlapArea(new Vector2(transform.position.x - 0.2f, transform.position.y - 0.2f),
         new Vector2(transform.position.x + 0.5f, transform.position.y - 0.51f), Environment);
 
         invincibleTimer -= Time.deltaTime;
@@ -81,6 +93,8 @@ public class PlayerMovement : MonoBehaviour
     {
         if(col.gameObject.tag == "Enemy" && !isInvincible)
         {
+            soundSource.clip = hurt;
+            soundSource.Play();
             lives = lives - 1;
             SetLivesText();
             isInvincible = true;
@@ -97,9 +111,15 @@ public class PlayerMovement : MonoBehaviour
         }
         if(lives == 0)
         {
+            soundSource.clip = death;
+            if (!soundSource.isPlaying)
+            {
+                soundSource.Play();
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
+            }
             //Destroy(this.gameObject);
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+     
+            Destroy(gameObject, 0.3f);
         }
     }
 
@@ -113,8 +133,15 @@ public class PlayerMovement : MonoBehaviour
 
         if (collision.gameObject.tag == "PitFall")
         {
-                        Instantiate(deathEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            soundSource.clip = death;
+            if (!soundSource.isPlaying)
+            {
+                soundSource.Play();
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
+            }
+            //Destroy(this.gameObject);
+
+            Destroy(gameObject, 0.3f);
         }
         if (collision.gameObject.tag == "Lvl2:Start")
         {
@@ -131,6 +158,8 @@ public class PlayerMovement : MonoBehaviour
         }
         if (collision.gameObject.tag == "Pick Up")
         {
+            soundSource.clip = pickup;
+            soundSource.Play();
             Destroy(collision.gameObject);
             Debug.Log("You got 1");
             count = count + 100;
@@ -140,18 +169,27 @@ public class PlayerMovement : MonoBehaviour
         {
             Destroy(collision.gameObject);
             isInvincible = true;
-            invincibleTimer = 5f;
+            invincibleTimer = 5.0f;
+        
             Debug.Log("Can't Touch Me");
         }
         if (isInvincible)
         {
+            soundSource.clip = invincible;
             invincibleTimer -= Time.deltaTime;
-            if (invincibleTimer == 0)
+            if (!soundSource.isPlaying && invincibleTimer >= 0.0f)
+            {
+                soundSource.Play();
+            }
+            if (invincibleTimer == 0.0f)
             {
                 isInvincible = false;
+                soundSource.clip=null;
             }
         }
     }
+
+
 
     void SetLivesText()
     {

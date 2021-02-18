@@ -12,6 +12,11 @@ public class EnemyController : MonoBehaviour
     public int health;
     public GameObject deathEffect;
 
+  
+    public AudioClip death;
+    public AudioSource soundSource;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,9 +36,15 @@ public class EnemyController : MonoBehaviour
         
         if (health <= 0) 
         {
+            soundSource.clip = death;
+            if (!soundSource.isPlaying)
+            {
+                soundSource.Play();
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
+            }
             //play death effect.
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
-            Destroy(gameObject);
+            //Destory(this); 
+            Destroy(gameObject, 0.1f);
         }
     }
 

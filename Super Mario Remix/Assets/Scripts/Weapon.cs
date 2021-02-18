@@ -8,6 +8,9 @@ public class Weapon : MonoBehaviour
     public GameObject projectile;
     private float timeBtwShots;
     public float startTimeBtwShots;
+
+    public AudioClip shoot;
+    public AudioSource soundSource;
     //public Transform shotPoint;
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,8 @@ public class Weapon : MonoBehaviour
             {
                 Instantiate(projectile, transform.position, transform.rotation);
                 timeBtwShots = startTimeBtwShots;
+                soundSource.clip = shoot;
+                soundSource.Play();
             }
         }
         else 

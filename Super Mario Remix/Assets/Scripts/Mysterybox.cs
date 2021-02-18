@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Mysterybox : MonoBehaviour
 {public GameObject[] items;
-
+    public AudioClip spawn;
+    public AudioSource soundSource;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,8 @@ public class Mysterybox : MonoBehaviour
     
     void OnCollisionEnter2D(Collision2D col)
     {
+        soundSource.clip = spawn;
+        soundSource.Play();
         if (col.gameObject.tag == "Player")
         {
             int rand = Random.Range(0, items.Length);

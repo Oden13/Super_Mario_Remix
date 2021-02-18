@@ -5,6 +5,8 @@ using UnityEngine;
 public class HitBoxScript : MonoBehaviour
 {
     public GameObject deathEffect;
+    public AudioClip death;
+    public AudioSource soundSource;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,10 +22,17 @@ public class HitBoxScript : MonoBehaviour
     {
         if(col.gameObject.tag == "Player")
         {
-            Destroy(gameObject);
-            Destroy(GameObject.FindWithTag("Enemy"));
+            soundSource.clip = death;
+            if (!soundSource.isPlaying)
+            {
+                soundSource.Play();
+                Instantiate(deathEffect, transform.position, Quaternion.identity);
+            }
+            Destroy(GameObject.FindWithTag("Enemy"),01f);
+            Destroy(gameObject,0.1f);
             Debug.Log ("Enemy down");
-            Instantiate(deathEffect, transform.position, Quaternion.identity);
+          
+            
         }
     }
 }
