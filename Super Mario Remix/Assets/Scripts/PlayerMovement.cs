@@ -7,6 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerMovement : MonoBehaviour
 {
+    Animator anim;
     public float speed;
     float mx;
     public bool isGrounded;
@@ -36,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+      anim = GetComponent<Animator> ();
         rb = GetComponent<Rigidbody2D>();
         lives = 2;
         SetLivesText();
@@ -48,6 +50,36 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+//animation state controller;
+if (Input.GetKeyUp (KeyCode.Space))
+{
+    anim.SetInteger("State",0);
+}
+
+
+if (Input.GetKeyDown (KeyCode.Space))
+{
+    anim.SetInteger("State",2);
+}
+
+if (Input.GetKeyUp (KeyCode.RightArrow))
+{
+    anim.SetInteger("State",0);
+}
+if (Input.GetKeyUp (KeyCode.LeftArrow))
+{
+    anim.SetInteger("State",0);
+}  
+
+
+if (Input.GetKeyDown (KeyCode.RightArrow))
+{
+    anim.SetInteger("State",1);
+}
+if (Input.GetKeyDown (KeyCode.LeftArrow))
+{
+    anim.SetInteger("State",1);
+}        
         //Store horizontal input in float mx;
 
         mx = Input.GetAxisRaw("Horizontal");
