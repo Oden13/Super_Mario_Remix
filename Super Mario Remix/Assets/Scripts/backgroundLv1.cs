@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Audioplay_background : MonoBehaviour
+public class backgroundLv1 : MonoBehaviour
 {
     public AudioClip backgroundlv1;
     public AudioSource soundSource;

@@ -98,7 +98,7 @@ MonoBehaviour:
   projectile: {fileID: 1284712259012020237, guid: 9d5508df9862c5f49b3b2df19fd33343,
     type: 3}
   startTimeBtwShots: 0.5
-  shoot: {fileID: 8300000, guid: 2d163b818302b944d8a96d50088265f4, type: 3}
+  shoot: {fileID: 8300000, guid: 1af3230b73a902d448756e92d68ca6e2, type: 3}
   soundSource: {fileID: 7267188914341638975}
 --- !u!82 &7267188914341638975
 AudioSource:
@@ -353,11 +353,11 @@ MonoBehaviour:
   deathEffect: {fileID: 3759607142285042829, guid: 1d5fd8eefa913404ba3144009788ae6f,
     type: 3}
   countText: {fileID: 0}
-  jump: {fileID: 8300000, guid: 5a5c676035c5fa54ab177aa5f442afd4, type: 3}
-  hurt: {fileID: 8300000, guid: bb13f940f269d6e479e89dfc5ceaeb03, type: 3}
-  death: {fileID: 8300000, guid: c9e43768986cde744989c8c189cb84c7, type: 3}
-  pickup: {fileID: 8300000, guid: ed027d4d17348ca49b32c3d0fa79725f, type: 3}
-  invincible: {fileID: 8300000, guid: 1f4e51a203b7f1a42b1b0d8d409281b0, type: 3}
+  jump: {fileID: 8300000, guid: 2af0a39e8f7fcd7459d76967be8857f1, type: 3}
+  hurt: {fileID: 8300000, guid: 8e12da63de2904f41b48924788ee082f, type: 3}
+  death: {fileID: 8300000, guid: 73e0af5b4b80eac489455733655daf6b, type: 3}
+  pickup: {fileID: 8300000, guid: 8497783e96dd8204cb14a1745ab74548, type: 3}
+  invincible: {fileID: 8300000, guid: 774be8e408e1e1f42bf8c1170a3009ea, type: 3}
   soundSource: {fileID: 6193087823959071561}
 --- !u!82 &5051383447711507975
 AudioSource:
