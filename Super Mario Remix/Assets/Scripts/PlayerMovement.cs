@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     public LayerMask Environment;
 
     public Rigidbody2D rb;
-    private int lives;
+    public static int lives;
     public Text livesText;
     public GameObject deathEffect;
     private int count;
@@ -112,6 +112,12 @@ if (Input.GetKeyDown (KeyCode.LeftArrow))
         }
         transform.localScale = characterScale;
 
+        if (lives <=0)
+        {
+            Debug.Log("You Have Died!");
+            SceneManager.LoadScene("LoseScreen");
+        }
+
     }
 
     void FixedUpdate()
@@ -160,6 +166,11 @@ if (Input.GetKeyDown (KeyCode.LeftArrow))
           if (collision.gameObject.tag == "Lvl2:End")
         {
             SceneManager.LoadScene (3);
+        }
+
+        if (collision.gameObject.tag == "TilemapDeath")
+        {
+            lives = 0;
         }
 
 

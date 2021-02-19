@@ -47,7 +47,7 @@ public class PauseMenu : MonoBehaviour
     }
     public void RestartScene(string SampleScene)
     {
-        SceneManager.LoadScene("SampleScene");
+        SceneManager.LoadScene("Game");
         Time.timeScale = 1f;
     }
 }
