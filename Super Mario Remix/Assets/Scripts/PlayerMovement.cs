@@ -225,12 +225,12 @@ if (Input.GetKeyDown (KeyCode.LeftArrow))
 
     void SetLivesText()
     {
-        livesText.text = "Lives: " + lives.ToString();
+        livesText.text = "Lives " + lives.ToString();
     }
 
     void SetCountText()
     {
-        countText.text = "Score: " + count.ToString ();
+        countText.text = "Score " + count.ToString ();
         if (count >= 300)
         {
             Debug.Log("You win");
