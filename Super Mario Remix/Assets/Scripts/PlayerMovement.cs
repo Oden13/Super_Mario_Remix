@@ -168,21 +168,17 @@ if (Input.GetKeyDown (KeyCode.LeftArrow))
             SceneManager.LoadScene (3);
         }
 
+
+
         if (collision.gameObject.tag == "TilemapDeath")
-        {
-            lives = 0;
-        }
-
-
-        if (collision.gameObject.tag == "PitFall")
         {
             soundSource.clip = death;
             soundSource.Play();
             Instantiate(deathEffect, transform.position, Quaternion.identity);
+            lives = 0;
            
-            //Destroy(this.gameObject);
 
-            Destroy(gameObject, 0.3f);
+           
         }
         if (collision.gameObject.tag == "Lvl2:Start")
         {
