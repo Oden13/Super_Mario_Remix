@@ -28,8 +28,8 @@ public class HitBoxScript : MonoBehaviour
                 soundSource.Play();
                 Instantiate(deathEffect, transform.position, Quaternion.identity);
             }
-            Destroy(GameObject.FindWithTag("Enemy"),01f);
-            Destroy(gameObject,0.1f);
+            Destroy(GameObject.FindWithTag("Enemy"));
+            Destroy(gameObject);
             Debug.Log ("Enemy down");
           
             
