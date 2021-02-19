@@ -324,7 +324,7 @@ MonoBehaviour:
   health: 1
   deathEffect: {fileID: 4206751906067123389, guid: a3d8f75ef8cc98f4bbebdc8207c8c79d,
     type: 3}
-  death: {fileID: 8300000, guid: 54b801cfacd2b704ab7867f3aa0cfb2b, type: 3}
+  death: {fileID: 8300000, guid: 73e0af5b4b80eac489455733655daf6b, type: 3}
   soundSource: {fileID: -5828680261003442568}
 --- !u!82 &-5828680261003442568
 AudioSource:

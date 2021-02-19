@@ -130,18 +130,18 @@ if (Input.GetKeyDown (KeyCode.LeftArrow))
             lives = lives - 1;
             SetLivesText();
             isInvincible = true;
-            invincibleTimer = 3f;
+            invincibleTimer = 2f;
         }
-        if (isInvincible)
+        if (col.gameObject.tag == "Enemy" && isInvincible)
         {
-            invincibleTimer -= Time.deltaTime;
+            Destroy(col.gameObject, 0.2f);
             if (invincibleTimer == 0)
             {
-                isInvincible = false;
+              isInvincible = false;
             }
 
         }
-        if(lives == 0)
+            if (lives == 0)
         {
             soundSource.clip = death;
             if (!soundSource.isPlaying)
@@ -166,11 +166,9 @@ if (Input.GetKeyDown (KeyCode.LeftArrow))
         if (collision.gameObject.tag == "PitFall")
         {
             soundSource.clip = death;
-            if (!soundSource.isPlaying)
-            {
-                soundSource.Play();
-                Instantiate(deathEffect, transform.position, Quaternion.identity);
-            }
+            soundSource.Play();
+            Instantiate(deathEffect, transform.position, Quaternion.identity);
+           
             //Destroy(this.gameObject);
 
             Destroy(gameObject, 0.3f);
@@ -190,8 +188,10 @@ if (Input.GetKeyDown (KeyCode.LeftArrow))
         }
         if (collision.gameObject.tag == "Pick Up")
         {
-            soundSource.clip = pickup;
-            soundSource.Play();
+           
+                soundSource.clip = pickup;
+                soundSource.Play();
+         
             Destroy(collision.gameObject);
             Debug.Log("You got 1");
             count = count + 100;
@@ -209,14 +209,14 @@ if (Input.GetKeyDown (KeyCode.LeftArrow))
         {
             soundSource.clip = invincible;
             invincibleTimer -= Time.deltaTime;
-            if (!soundSource.isPlaying && invincibleTimer >= 0.0f)
+            if (!soundSource.isPlaying)
             {
                 soundSource.Play();
             }
             if (invincibleTimer == 0.0f)
             {
                 isInvincible = false;
-                soundSource.clip=null;
+               
             }
         }
     }
