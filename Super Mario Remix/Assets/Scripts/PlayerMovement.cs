@@ -129,16 +129,16 @@ if (Input.GetKeyDown (KeyCode.LeftArrow))
             soundSource.Play();
             lives = lives - 1;
             SetLivesText();
-            isInvincible = true;
-            invincibleTimer = 2f;
+            //isInvincible = true;
+            //invincibleTimer = 2f;
         }
         if (col.gameObject.tag == "Enemy" && isInvincible)
         {
             Destroy(col.gameObject, 0.2f);
-            if (invincibleTimer == 0)
-            {
-              isInvincible = false;
-            }
+            //if (invincibleTimer == 0)
+            //{
+              //isInvincible = false;
+            //}
 
         }
             if (lives == 0)
