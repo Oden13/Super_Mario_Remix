@@ -157,7 +157,7 @@ if (Input.GetKeyDown (KeyCode.LeftArrow))
             }
             //Destroy(this.gameObject);
      
-            Destroy(gameObject, 0.3f);
+            Destroy(gameObject, 0.2f);
         }
     }
 
@@ -169,16 +169,17 @@ if (Input.GetKeyDown (KeyCode.LeftArrow))
         }
 
 
+        if (collision.gameObject.tag == "Death")
+        {
+            lives = 0;
+        }
 
-        if (collision.gameObject.tag == "TilemapDeath")
+        if (collision.gameObject.tag == "Fall")
         {
             soundSource.clip = death;
             soundSource.Play();
             Instantiate(deathEffect, transform.position, Quaternion.identity);
-            lives = 0;
-           
-
-           
+            
         }
         if (collision.gameObject.tag == "Lvl2:Start")
         {

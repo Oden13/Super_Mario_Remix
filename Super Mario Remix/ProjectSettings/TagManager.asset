@@ -12,7 +12,8 @@ TagManager:
   - Power Up
   - PitFall
   - Lvl2:Start
-  - TilemapDeath
+  - Fall
+  - Death
   layers:
   - Default
   - TransparentFX
