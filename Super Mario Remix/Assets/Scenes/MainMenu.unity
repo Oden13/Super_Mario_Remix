@@ -1270,7 +1270,7 @@ RectTransform:
   m_GameObject: {fileID: 656237307}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12.32326, y: 7.054147, z: 1}
+  m_LocalScale: {x: 12.32326, y: 8.2, z: 1}
   m_Children: []
   m_Father: {fileID: 152627994}
   m_RootOrder: 0
@@ -2743,7 +2743,7 @@ MonoBehaviour:
 
     ART: Giancarlo Penton
 
-    CODE: Jordan thigpen, Kevin Perez and Hongxu Li'
+    CODE: J''rdan Thigpen, Kevin Perez and Hongxu Li'
 --- !u!222 &2071154534
 CanvasRenderer:
   m_ObjectHideFlags: 0

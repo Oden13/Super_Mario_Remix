@@ -292,7 +292,7 @@ MonoBehaviour:
 
     ART: Giancarlo Penton
 
-    CODE: Jordan thigpen, Kevin Perez and Hongxu Li'
+    CODE: J''rdan Thigpen, Kevin Perez and Hongxu Li'
 --- !u!222 &697190479
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1200,7 +1200,7 @@ RectTransform:
   m_GameObject: {fileID: 2128910847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12.32326, y: 7.054147, z: 1}
+  m_LocalScale: {x: 12.32326, y: 7.96, z: 1}
   m_Children: []
   m_Father: {fileID: 1509745188}
   m_RootOrder: 0
