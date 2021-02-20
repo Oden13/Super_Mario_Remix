@@ -3,7 +3,16 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Lvl1:End
+  - Lvl2:End
+  - Pick Up
+  - Enemy
+  - HitBox
+  - Power Up
+  - PitFall
+  - Lvl2:Start
+  - TilemapDeath
   layers:
   - Default
   - TransparentFX
@@ -13,7 +22,7 @@ TagManager:
   - UI
   - 
   - 
-  - 
+  - Gournd
   - 
   - 
   - 
